@@ -1,0 +1,19 @@
+
+.fira-code{
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+#mainHeader {
+    font-family:Fira Code, monospace;
+}
+
+#contactName {
+    font-family: Fira sans;
+}
+
+body {
+    background-color: black;
+    color:white;
+}
