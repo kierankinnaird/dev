@@ -10,6 +10,16 @@ import "./styles/global.css";
 function App() {
   const [showWelcome, setShowWelcome] = useState(false);
   const [showName, setShowName] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+
+  useEffect(() => {
+    document.body.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   useEffect(() => {
     setTimeout(() => setShowWelcome(true), 500); // Fade in welcome text after 0.5s
@@ -19,7 +29,7 @@ function App() {
   return (
     <Router>
       <VantaBackground />
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
       <div className="fixed inset-0 flex flex-col justify-center items-center text-white text-center">
         <h1 
           className={`text-4xl font-bold transition-opacity duration-1000 ${
